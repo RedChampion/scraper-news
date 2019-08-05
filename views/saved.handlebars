@@ -1,0 +1,29 @@
+<div class="jumbotron text-center p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-sm-12 px-0">
+      <h1 class="display-4 font-italic">SAVED ARTICLES</h1>
+      <p class="lead my-3">See all of your saved articles here.</p>
+      <a href="/" id="scrape" class='btn btn-secondary'>Home</a>
+            <a href="/notes" id="allNotes" class='btn btn-secondary'>Saved Notes</a>
+    </div>
+</div>
+
+
+
+<!-- Pass in data from server.js -->
+<div class="row text_middle" id="savedArticlesHTML">
+  
+    {{#each savedArticles}}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"> {{this.title}}</h5>
+        <p class="card-text"> {{this.body}}</p>
+        <a target='_blank' href= {{this.link}}><button class='btn btn-outline-secondary col-sm-4 m-1'> Read Article</button></a>
+        <button class='btn btn-outline-secondary col-sm-4 m-1'  id='deleteSavedHTML' data-id='{{this._id}}' data-title='{{this.title}}' data-summary='{{this.body}}'
+          data-link='{{this.link}}'>Delete Article</button>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+  <div id="notes"></div>
+</div>
